@@ -1,4 +1,4 @@
-package org.HibernateOneToOne.entity;
+package org.SpringDataJpaOneToOne.entity;
 
 
 import javax.persistence.*;
@@ -66,7 +66,6 @@ public class Employee {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(id, name, card);
     }
 }

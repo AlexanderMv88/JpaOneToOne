@@ -1,4 +1,4 @@
-package org.HibernateOneToOne.entity;
+package org.SpringDataJpaOneToOne.entity;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -15,7 +15,6 @@ public class Card {
     private String name;
     @OneToOne(mappedBy = "card")
     private Employee employee;
-
 
     public Long getId() {
         return id;

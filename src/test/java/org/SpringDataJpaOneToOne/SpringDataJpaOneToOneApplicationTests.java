@@ -1,8 +1,8 @@
-package org.HibernateOneToOne;
+package org.SpringDataJpaOneToOne;
 
-import org.HibernateOneToOne.entity.Card;
-import org.HibernateOneToOne.entity.Employee;
-import org.HibernateOneToOne.repository.EmployeeRepository;
+import org.SpringDataJpaOneToOne.entity.Card;
+import org.SpringDataJpaOneToOne.entity.Employee;
+import org.SpringDataJpaOneToOne.repository.EmployeeRepository;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,11 +19,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class HibernateOneToOneApplicationTests {
+public class SpringDataJpaOneToOneApplicationTests {
 
 	@Autowired
 	EmployeeRepository employeeRepository;
-
 
 	@Test
 	public void test1JpaCreate() {
@@ -37,12 +36,6 @@ public class HibernateOneToOneApplicationTests {
 		List<Employee> employees = employeeRepository.findAll();
 		assertThat(employees != null).isTrue();
 		assertThat(employees.size() == 3).isTrue();
-
-
-
-
-
-
 	}
 
 	@Test
@@ -51,13 +44,7 @@ public class HibernateOneToOneApplicationTests {
 		Employee employee = employeeRepository.findOneByName("Саша");
 		assertThat(employee.getName()).isEqualTo("Саша");
 		assertThat(employee.getCard().getName()).isEqualTo("Карточка Александра");
-
-
-
-
-
 	}
-
 
 	@Test
 	public void test3JpaChange() {
@@ -69,8 +56,6 @@ public class HibernateOneToOneApplicationTests {
 
 		employeeRepository.save(employee);
 
-
-
 		Employee changedEmployee = employeeRepository.findOneByName("Александр");
 		assertThat(changedEmployee).isEqualTo(employee);
 	}
@@ -80,8 +65,5 @@ public class HibernateOneToOneApplicationTests {
 		List<Employee> employeesForDelete = employeeRepository.findAll();
 		employeeRepository.deleteAll(employeesForDelete);
 		assertThat(employeeRepository.findAll().size() == 0).isTrue();
-
-
 	}
-
 }
